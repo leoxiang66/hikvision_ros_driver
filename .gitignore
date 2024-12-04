@@ -4,6 +4,8 @@
 **build/**
 **bin**
 
+
+**workspace**
 **vscode**
 # Compiled Object files
 *.slo
@@ -12,6 +14,8 @@
 *.obj
 
 **devel**
+
+catkin_ws/src/CMakeLists.txt
 
 
 # Precompiled Headers
