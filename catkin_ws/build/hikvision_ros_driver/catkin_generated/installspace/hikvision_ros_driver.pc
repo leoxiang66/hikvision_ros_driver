@@ -1,0 +1,8 @@
+prefix=/home/leo/git/hikvision_ros_driver/catkin_ws/install
+
+Name: hikvision_ros_driver
+Description: Description of hikvision_ros_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

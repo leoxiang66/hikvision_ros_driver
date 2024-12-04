@@ -4,6 +4,7 @@
 **build/**
 **bin**
 
+**vscode**
 # Compiled Object files
 *.slo
 *.lo

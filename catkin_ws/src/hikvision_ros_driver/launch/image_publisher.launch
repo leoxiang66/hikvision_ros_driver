@@ -1,0 +1,7 @@
+<launch>
+  <!-- Launch the image_publisher_node -->
+  <node pkg="hikvision_ros_driver" type="image_publisher_node" name="image_publisher" output="screen">
+    <!-- Add parameters -->
+    <param name="image_topic" value="/hikcamera/image_raw" />
+  </node>
+</launch>

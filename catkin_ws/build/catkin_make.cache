@@ -1,0 +1,2 @@
+hikvision_ros_driver
+-DCATKIN_DEVEL_PREFIX=/home/leo/git/hikvision_ros_driver/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/leo/git/hikvision_ros_driver/catkin_ws/install -G Unix Makefiles
