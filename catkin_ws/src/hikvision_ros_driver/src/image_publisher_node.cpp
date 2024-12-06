@@ -44,12 +44,14 @@ void publishImage(MV_FRAME_OUT *stImageInfo, image_transport::Publisher &image_p
   const uint64_t timestamp_nano = pframe_info->getTimestampNano();
   const unsigned int frame_id = pframe_info->getFrameID();
 
+
   // Step 3: Populate the header with FrameInfo attributes
   msg->header.stamp = ros::Time(static_cast<uint32_t>(timestamp_nano / 1000000000), static_cast<uint32_t>(timestamp_nano % 1000000000));
   msg->header.seq = frame_id;                      // 注意：ROS的seq是uint32，可能需要根据实际情况调整
   msg->header.frame_id = std::to_string(frame_id); // 将frame_id转换为字符串
 
-  // Step 3: Publish the image message
+  
+  // Step 4: Publish the image message
   image_pub.publish(msg);
 }
 
@@ -103,14 +105,14 @@ void camera_work(unsigned int idx, double freq, uint64_t sync_point, image_trans
   // Synchronize and issue action commands
   timer.syncToFirstInterval();
 
-  for (size_t i = 0; i < 100; i++) 
+  while(ros::ok())
   {
     issue_action_command();
     timer.syncToNextInterval();
   }
 
   // Clean up and close the SDK
-  stop_grabbing(cam);
+  stop_grabbing(cam);             
   close_device(cam);
 }
 
@@ -128,8 +130,6 @@ int main(int argc, char **argv)
 
   // Print the parameters to verify
   ROS_INFO("Image Topic: %s", image_topic.c_str());
-
-
 
   // Create an image publisher
   image_transport::ImageTransport it(nh);

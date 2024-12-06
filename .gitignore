@@ -3,6 +3,7 @@
 
 **build/**
 **bin**
+catkin_ws/build
 
 
 **workspace**
@@ -11,6 +12,7 @@
 *.slo
 *.lo
 *.o
+*.txt
 *.obj
 
 **devel**
